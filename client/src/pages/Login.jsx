@@ -9,7 +9,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://assignement-production.up.railway.app/api/auth/login', form);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, form);
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       navigate('/dashboard');

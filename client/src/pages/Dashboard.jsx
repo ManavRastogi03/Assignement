@@ -8,7 +8,7 @@ export default function Dashboard() {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    axios.get('https://assignement-production.up.railway.app/api/tasks/all', {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/tasks/all`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setTasks(res.data)).catch(() => {});
   }, []);

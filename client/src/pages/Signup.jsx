@@ -9,7 +9,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://assignement-production.up.railway.app/api/auth/signup', form);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/signup`, form);
       navigate('/login');
     } catch (err) {
       alert(err.response?.data?.message || 'Signup failed');

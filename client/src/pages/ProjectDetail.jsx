@@ -12,13 +12,13 @@ export default function ProjectDetail() {
   const token = localStorage.getItem('token');
 
   const fetchTasks = () => {
-    axios.get(`https://assignement-production.up.railway.app/api/tasks/${id}`, {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/tasks/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setTasks(res.data));
   };
 
   const fetchUsers = () => {
-    axios.get('https://assignement-production.up.railway.app/api/users', {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/users`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setUsers(res.data)).catch(() => {});
   };
@@ -30,7 +30,7 @@ export default function ProjectDetail() {
 
   const createTask = async () => {
     if (!form.title) return;
-    await axios.post('https://assignement-production.up.railway.app/api/tasks', {
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/tasks`, {
       ...form,
       project: id
     }, {
@@ -41,14 +41,14 @@ export default function ProjectDetail() {
   };
 
   const updateStatus = async (taskId, status) => {
-    await axios.put(`https://assignement-production.up.railway.app/api/tasks/${taskId}`, { status }, {
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/tasks/${taskId}`, { status }, {
       headers: { Authorization: `Bearer ${token}` }
     });
     fetchTasks();
   };
 
   const deleteTask = async (taskId) => {
-    await axios.delete(`https://assignement-production.up.railway.app/api/tasks/${taskId}`, {
+    await axios.delete(`${import.meta.env.VITE_API_URL}/api/tasks/${taskId}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     fetchTasks();
