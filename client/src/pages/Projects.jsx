@@ -11,7 +11,7 @@ export default function Projects() {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
 
   const fetchProjects = () => {
-    axios.get('http://localhost:5000/api/projects', {
+    axios.get('https://assignement-production.up.railway.app/api/projects', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setProjects(res.data));
   };
@@ -20,7 +20,7 @@ export default function Projects() {
 
   const createProject = async () => {
     if (!name) return;
-    await axios.post('http://localhost:5000/api/projects', { name, description }, {
+    await axios.post('https://assignement-production.up.railway.app/api/projects', { name, description }, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setName('');
@@ -29,7 +29,7 @@ export default function Projects() {
   };
 
   const deleteProject = async (id) => {
-    await axios.delete(`http://localhost:5000/api/projects/${id}`, {
+    await axios.delete(`https://assignement-production.up.railway.app/api/projects/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     fetchProjects();

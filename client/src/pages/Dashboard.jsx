@@ -8,8 +8,7 @@ export default function Dashboard() {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    // fetch all tasks for demo - you can filter by project
-    axios.get('http://localhost:5000/api/tasks/all', {
+    axios.get('https://assignement-production.up.railway.app/api/tasks/all', {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => setTasks(res.data)).catch(() => {});
   }, []);
