@@ -4,8 +4,8 @@
 A full-stack web app to manage projects and tasks with role-based access.
 
 ## Live URL
-https://assign.up.railway.app/login
-backend-->https://assignement-production.up.railway.app/api/tasks
+https://assign.up.railway.app
+backend-->https://assignement-production.up.railway.app
 
 ## Tech Stack
 - Frontend: React + Vite
